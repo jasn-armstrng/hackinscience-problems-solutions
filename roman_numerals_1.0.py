@@ -10,7 +10,6 @@ def units_to_roman(number: int) -> str:
     else:
         return number * 'I'
 
-
 def tenths_to_roman(number: int) -> str:
     if number == 9:
         return 'XC'
@@ -22,7 +21,6 @@ def tenths_to_roman(number: int) -> str:
         return 'XL'
     else:
         return number * 'X'
-
 
 def hundredths_to_roman(number: int) -> str:
     if number == 9:
@@ -36,10 +34,8 @@ def hundredths_to_roman(number: int) -> str:
     else:
         return number * 'C'
 
-
 def thousands_to_roman(number: int) -> str:
     return number * 'M'
-
 
 conversion_dict = {
     '0': units_to_roman,
@@ -47,7 +43,6 @@ conversion_dict = {
     '2': hundredths_to_roman,
     '3': thousands_to_roman
 }
-
 
 def to_roman_numeral(number: int) -> str:
     # Rules:
@@ -61,15 +56,14 @@ def to_roman_numeral(number: int) -> str:
     #   8. If the hundredths part of the number is 100 less 500 or 1000 it is represented by 'C' followed by the the representations for 500 'D' or 100 'M'
     #   9. If the hundredths part of the number is > 500 and < 900 it is represented by 500 'D' and the equivalent number of 'C's to make up that number
     #   10. The thousandths part of the number is represented by the equivalent number of 'M's
-
-
+    
     # Actions:
     #   1. Divide the number into units, tenths, hundredths, thousands
     #   2. In a list tore each place value
     #   3. Apply the rules for each place value
-    output: str = ""
-    stack: list = []
-    counter: int = 0
+    output  = ""
+    stack   = []
+    counter = 0
     while number > 0:
         function = conversion_dict.get(str(counter))
         if counter > 2:
