@@ -1,5 +1,5 @@
+# https://www.hackinscience.org/exercises/friday-the-13th
 import datetime
-
 
 def friday_13th():
     # Start from today in case today's Friday 13th
@@ -13,13 +13,10 @@ def friday_13th():
         if date.day == 13 and date.weekday() == 4:
             break
         date += datetime.timedelta(days=1)
-
     return date.strftime("%Y-%m-%d")
-
 
 def main() -> None:
     print(friday_13th())
-
 
 if __name__ ==  "__main__":
     main()
