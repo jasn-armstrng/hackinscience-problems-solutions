@@ -10,7 +10,6 @@ def from_roman_numeral(roman_numeral: str) -> None:
         int: The decimal (integer) equivalent of the given Roman numeral.
              For example: 9, 14, 3999.
     """
-    # Map each Roman numeral to its decimal value.
     roman_numerals: dict = {
         'I': 1,
         'V': 5,
@@ -21,24 +20,17 @@ def from_roman_numeral(roman_numeral: str) -> None:
         'M': 1000
     }
 
-    decimal: int = 0  # Will hold the final decimal value.
-    previous: int = 0  # Will hold the value of the previous Roman numeral in the loop.
+    decimal  = 0
+    previous = 0
 
-    # Process the numerals from right to left.
-    for numeral in roman_numeral.upper():  # Loop is reversed to process numerals from right to left.
-        next: int = roman_numerals[numeral]  # Get the decimal value of the current Roman numeral.
+    for numeral in roman_numeral.upper():  
+        next: int = roman_numerals[numeral]
 
-        # If the value of the previous numeral is greater or equal to the current,
-        # add the value of the previous numeral to the decimal.
         if previous >= next:
             decimal += previous
-        # Otherwise, subtract the value of the previous numeral from the decimal.
         else:
             decimal -= previous
-
-        previous = next  # Set the current numeral as the previous for the next iteration.
-
-    # Add the value of the last processed numeral to the decimal.
+        previous = next 
     decimal += next
 
     return decimal
