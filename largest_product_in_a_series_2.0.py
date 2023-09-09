@@ -1,5 +1,4 @@
-from typing import List
-
+# https://www.hackinscience.org/exercises/largest-product-in-a-series
 
 series: str = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -23,13 +22,11 @@ series: str = """73167176531330624919225119674426574742355349194934
 71636269561882670428252483600823257530420752963450"""
 series = series.replace('\n', '')
 
-
 def largest_product_of_adjacent_digits_in_series(series: str, number_of_adjacent_digits: int) -> int:
-    window_start: int = 0
-    window_end: int = number_of_adjacent_digits
-
-    largest_product: int = 0
-    product: int = 1
+    window_start    = 0
+    window_end      = number_of_adjacent_digits
+    largest_product = 0
+    product         = 1
 
     # Compute the first product of the "window" in the series
     for i in range(window_start, window_end):
@@ -52,19 +49,15 @@ def largest_product_of_adjacent_digits_in_series(series: str, number_of_adjacent
         largest_product = max(largest_product, product)
         window_start += 1
         window_end += 1
-
     return largest_product
-
 
 def tests() -> None:
     assert largest_product_of_adjacent_digits_in_series("716362", 4) == 216
     assert largest_product_of_adjacent_digits_in_series(series, 13) == 23514624000
     print("All tests have passed")
 
-
 def main() -> None:
     tests()
-
 
 if __name__ == "__main__":
     main()
