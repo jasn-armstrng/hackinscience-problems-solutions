@@ -1,3 +1,5 @@
+# https://www.hackinscience.org/exercises/caesar-cypher
+
 A, Z = 65, 90   # Upper and lower bounds for Ascii uppercase letter
 a, z = 97, 122  # Upper and lower bounds for Ascii lowercase letter
 dist = 26       # No. of letters in the English alphabet.
@@ -31,7 +33,6 @@ def caesar_cypher_encrypt(message: str, key: int) -> str:
             cypher.append(i)
     return ''.join(cypher)
 
-
 def caesar_cypher_decrypt(cypher: str, key: int) -> str:
     """
     Decrypts a given cyphertext using the Caesar cipher.
@@ -61,16 +62,13 @@ def caesar_cypher_decrypt(cypher: str, key: int) -> str:
             message.append(i)
     return ''.join(message)
 
-
 def test_encrypt_decrypt() -> None:
     assert caesar_cypher_decrypt("Udymts nx xzujw inxht !", 31) == "Python is super disco !"
     assert caesar_cypher_encrypt("Python is super disco !", 31) == "Udymts nx xzujw inxht !"
     print("All tests have passed!")
 
-
 def main() -> None:
     test_encrypt_decrypt()
-
 
 if __name__ == "__main__":
     main()
