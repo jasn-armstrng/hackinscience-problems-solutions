@@ -1,6 +1,5 @@
 import string
 
-
 def count_letters(filename: str) -> dict:
     """
     Counts the occurrence of each letter (case-insensitive) in the given file.
@@ -15,7 +14,6 @@ def count_letters(filename: str) -> dict:
     Exception: If an error occurred while reading the file.
     """
     letters = {letter: 0 for letter in string.ascii_lowercase}
-
     try:
         with open(filename, 'r') as file:
             for line in file:  # Rather than read whole file into memory, read line by line
@@ -25,9 +23,7 @@ def count_letters(filename: str) -> dict:
     except Exception as e:
         print(f"An error occurred while trying to read the file {filename}. Error: {type(e).__name__}, {str(e)}")
         return None
-
     return letters
-
 
 def letter_frequencies(filename: str) -> dict:
     """
@@ -42,19 +38,15 @@ def letter_frequencies(filename: str) -> dict:
     letters = count_letters(filename)
     if letters is None:
         return None
-
     total_letters = sum(letters.values())
     frequencies = {letter: count / total_letters for letter, count in letters.items()}
-
     return frequencies
-
 
 def main() -> None:
     frequencies = letter_frequencies("lorem_ipsum.tx")
     if frequencies is not None:
         for letter, frequency in frequencies.items():
             print(f'{letter}: {frequency:.2f}')
-
 
 if __name__ == "__main__":
     main()
