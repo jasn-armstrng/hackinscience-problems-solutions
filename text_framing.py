@@ -8,8 +8,6 @@ The border style is defined by a Frame dataclass instance which can be easily cu
 """
 from dataclasses import dataclass, replace
 from datetime import datetime
-from typing import List
-
 
 @dataclass
 class Frame:
@@ -22,11 +20,9 @@ class Frame:
     bottom_left: str = "+"
     bottom_right: str = "+"
 
-
-standard_frame = Frame()
-fancy_frame = Frame("─", "│", "─", "│", "╭", "╮", "╰", "╯")
+standard_frame  = Frame()
+fancy_frame     = Frame("─", "│", "─", "│", "╭", "╮", "╰", "╯")
 invisible_frame = Frame(" ", " ", " ", " ", " ", " ", " ", " ")
-
 
 def frame_text(text: str, frame: Frame) -> str:
     """
@@ -58,13 +54,11 @@ def frame_text(text: str, frame: Frame) -> str:
     bottom_border: str = frame.bottom_left + frame.bottom * (max_width) + frame.bottom_right
 
     # Construct the nested lines. The " " ensures that multiline strings of varying lengths are bordered symmetrically
-    nested_lines: List[str] = [f'{frame.left}{line}{" " * (max_width - len(line))}{frame.right}' for line in lines]
+    nested_lines: list[str] = [f'{frame.left}{line}{" " * (max_width - len(line))}{frame.right}' for line in lines]
 
     # Join all the lines together
     result: str = '\n'.join([top_border] + nested_lines + [bottom_border])
-
     return result
-
 
 def main() -> None:
     # Testing
@@ -102,7 +96,6 @@ def main() -> None:
 
     custom_frame = Frame(top='─', left='│', bottom='─', right='│', top_left='╭', top_right='╮', bottom_left='╰', bottom_right='╯')
     print(frame_text(fir, custom_frame))
-
 
 if __name__ == "__main__":
     main()
