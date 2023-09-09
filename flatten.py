@@ -1,3 +1,4 @@
+# https://www.hackinscience.org/exercises/flatten-lists
 def flatten(input: list) -> list:
     """
     Flattens a nested list into a single list.
@@ -21,25 +22,20 @@ def flatten(input: list) -> list:
         [1, 2, 3, 4, 5]
     """
     flattened: list = []
-
     for i in input:
         if isinstance(i, list):
             flattened.extend(flatten(i))  # If the element is a list, make a recursive call
         else:  # Base case: the element is an individual item, not a list
             flattened.append(i)
-
     return flattened
-
 
 def test_flatten() -> None:
     assert flatten([[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]) == [1, 2, 3, 4, 5, 6, 7, 8]
     assert flatten([[1, 2, [3]], 4, [5, [6, 7]]]) == [1, 2, 3, 4, 5, 6, 7]
     print("All test have passed")
 
-
 def main() -> None:
     test_flatten()
-
 
 if __name__ == "__main__":
     main()
