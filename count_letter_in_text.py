@@ -13,10 +13,8 @@ def count_occurence_of_character(filename: str, char: str) -> int:
         print(f"An unexpected error occurred: {str(e)}.")
         return -1
 
-
 def main() -> None:
     print(count_occurence_of_character("lorem_ipsum.txt", 'e'))
-
 
 if __name__ == "__main__":
     main()
