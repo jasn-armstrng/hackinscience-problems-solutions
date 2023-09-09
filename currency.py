@@ -4,13 +4,10 @@
 # denomination that does not exceed the remaining balance.
 from collections import defaultdict
 from rich.console import Console
-from typing import List
-
 
 console = Console()
 
-
-def how_to_pay(amount: int, currency: List[int]) -> dict:
+def how_to_pay(amount: int, currency: list[int]) -> dict:
     """
     Calculates the easiest way to pay a certain amount with given denominations.
 
@@ -37,10 +34,10 @@ def how_to_pay(amount: int, currency: List[int]) -> dict:
         raise ValueError("Amount to pay must be non-negative.")
     if any(coin < 0 for coin in currency):
         raise ValueError("All currency values must be non-negative.")
-
+        
     currency.sort(reverse=True)  # (O(n log n)). No control o'er the input, this sorting step is necessary.
     pay_with = defaultdict(int)
-
+    
     while amount > 0:
         for i in currency:
             if i <= amount:
@@ -49,9 +46,7 @@ def how_to_pay(amount: int, currency: List[int]) -> dict:
                 break
         else:  #  while-loop without a definite end could potentially lead to an infinite loop if no suitable denomination is found.
             raise ValueError(f"Cannot pay the exact amount {amount} with the given currency using denominations less than or equal to the amount.")
-
     return pay_with
-
 
 def test_how_to_pay() -> None:
     assert how_to_pay(3, [1, 2, 5]) == {2: 1, 1: 1}
@@ -62,10 +57,8 @@ def test_how_to_pay() -> None:
     assert how_to_pay(2, [1, 2, 5, 10, 20, 50, 100, 200, 500]) == {2: 1}
     console.log("All tests have passed")
 
-
 def main() -> None:
     test_how_to_pay()
-
 
 if __name__ == "__main__":
     main()
