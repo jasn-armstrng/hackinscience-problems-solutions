@@ -9,13 +9,12 @@
 # For the City the average of the School averages.
 # School have a get_best_student() method, returning the best Student.
 # Cities have a get_best_school() and a get_best_student() methods, returning respectively a School and a Student.
-from typing import List
 
 class Student:
     def __init__(self, name:str) -> None:
         """Initialize the Student with a name."""
         self.name = name
-        self.grades: List[int] = []
+        self.grades: list[int] = []
 
     def add_exam(self, grade: int) -> None:
         """Record a new grade for the student."""
@@ -25,12 +24,11 @@ class Student:
         """Return the average of the student's grades."""
         return round(sum(self.grades)/len(self.grades), 2) if self.grades else 0.0
 
-
 class School:
     def __init__(self, name:str) -> None:
         """Initialize the School with a name."""
         self.name = name
-        self.students: List[Student] = []
+        self.students: list[Student] = []
 
     def add_student(self, student: Student) -> None:
         """Add a student to the school."""
@@ -48,12 +46,11 @@ class School:
         best_student: Student = max(self.students, key=lambda student: student.get_mean())
         return best_student
 
-
 class City:
     def __init__(self, name:str) -> None:
         """Initialize the City with a name."""
         self.name = name
-        self.schools: List[School] = []
+        self.schools: list[School] = []
 
     def add_school(self, school: School) -> None:
         """Add a school to the city."""
@@ -78,7 +75,6 @@ class City:
         best_student: Student = max((student for school in self.schools for student in school.students),
                             key=lambda student: student.get_mean(), default=None)
         return best_student if best_student else None
-
 
 def test_classes():
     # Test Student class
@@ -127,13 +123,10 @@ def test_classes():
     assert city.get_mean() == 92.41  # there's only one school
     assert city.get_best_school().name == "High School"  # only one school in city
     assert city.get_best_student().name == "John"  # s1 has higher average
-
     print("All tests passed!")
-
 
 def main() -> None:
     test_classes()
-
 
 if __name__ == "__main__":
     main()
