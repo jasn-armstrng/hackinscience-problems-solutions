@@ -1,6 +1,5 @@
+# https://www.hackinscience.org/exercises/pernicious-numbers
 from math import sqrt
-from typing import List
-
 
 def is_prime(n: int) -> bool:
     """
@@ -12,11 +11,8 @@ def is_prime(n: int) -> bool:
     Returns:
     bool : True if the number is prime, False otherwise.
     """
-
-    # If the number is less than 2, it's not prime.
     if n < 2:
         return False
-
     # Check if the number is greater than 2 and even.
     # If so, it's not prime.
     # Note: We use bitwise AND operation with 1 to check for evenness.
@@ -25,16 +21,13 @@ def is_prime(n: int) -> bool:
     # This method is faster than using modulo, especially for larger numbers.
     if n > 2 and n & 1 == 0:
         return False
-
     # If the number is not divisible by any number up to its square root, it's prime.
     for x in range(3, int(sqrt(n)) + 1, 2):
         if n % x == 0:
             return False
-
     return True
 
-
-def pernicious_numbers(range_: range) -> List[int]:
+def pernicious_numbers(range_: range) -> list[int]:
     """
     Find pernicious numbers in a range.
 
@@ -54,15 +47,12 @@ def pernicious_numbers(range_: range) -> List[int]:
         # Check if the number of 1s in the binary representation of i is prime
         if is_prime(bin(i).count('1')):
             pernicious_nums.append(i)
-
     return pernicious_nums
-
 
 def main() -> None:
     pernicious_nums = pernicious_numbers(range(222281, 222381))
     for num in pernicious_nums:
         print(num)
-
 
 if __name__ == "__main__":
     main()
