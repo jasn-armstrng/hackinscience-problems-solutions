@@ -1,3 +1,4 @@
+# https://www.hackinscience.org/exercises/text-framing
 """
 Title: Text Framing
 Author: Your Name
@@ -11,14 +12,14 @@ from datetime import datetime
 
 @dataclass
 class Frame:
-    top: str = "-"
-    left: str = "|"
-    bottom: str = "-"
-    right: str = "|"
-    top_left: str = "+"
-    top_right: str = "+"
-    bottom_left: str = "+"
-    bottom_right: str = "+"
+    top          = "-"
+    left         = "|"
+    bottom       = "-"
+    right        = "|"
+    top_left     = "+"
+    top_right    = "+"
+    bottom_left  = "+"
+    bottom_right = "+"
 
 standard_frame  = Frame()
 fancy_frame     = Frame("─", "│", "─", "│", "╭", "╮", "╰", "╯")
