@@ -1,7 +1,7 @@
+# https://www.hackinscience.org/exercises/csv-and-python
 import csv
 import datetime
 from pprint import pprint
-
 
 def generate_csv(input: list[tuple]) -> None:
     headers = [i[0] for i in input[0]]
@@ -15,7 +15,6 @@ def generate_csv(input: list[tuple]) -> None:
             locations = ",".join(t[2][1])
             weather = t[3][1]
             results_writer.writerow([temperature, date, locations, weather])
-
 
 # CSV Sample:
 # firstname,Lastname,Birthdate,Marks,Comments
@@ -36,9 +35,7 @@ def parse_student_data_csv(path_to_csv: str) -> list[dict]:
                 'Marks':     [int(x) for x in row['Marks'].split(',')],
                 'Comments':  row['Comments']
                 })
-
     return students
-
 
 def main() -> None:
     meteo = [(('temperature', 42),
@@ -51,10 +48,8 @@ def main() -> None:
               ('weather', 'cloudy'))]
 
     generate_csv(meteo)
-
     students = parse_student_data_csv("files/students.csv")
     pprint(students)
-
 
 if __name__ == "__main__":
     main()
