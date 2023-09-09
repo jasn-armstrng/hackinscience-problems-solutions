@@ -1,3 +1,5 @@
+# https://www.hackinscience.org/exercises/longest-collatz-sequence
+
 # The Collatz conjecture applies to +ve integers and speculates
 # that it is always possible to get "back to 1" if you follow
 # these steps
@@ -14,15 +16,12 @@ def collatz_length(n: int) -> int:
     else:
         return 1 + collatz_length(3 * n + 1)
 
-
 def test_collatz_length() -> None:
     assert collatz_length(10) == 6
     print("All tests have passed")
 
-
 def main() -> None:
     test_collatz_length()
-
 
 if __name__ == "__main__":
     main()
