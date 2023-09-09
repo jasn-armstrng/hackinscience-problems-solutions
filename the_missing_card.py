@@ -1,3 +1,4 @@
+# https://www.hackinscience.org/exercises/the-missing-card
 # Define all the possible keys
 keys: list = [
     "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S00", "SJ", "SQ", "SK", "SA",
@@ -6,9 +7,7 @@ keys: list = [
     "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C00", "CJ", "CQ", "CK", "CA"
 ]
 
-# Create the dictionary
 card_dict: dict = {key: 0 for key in keys}
-
 
 def missing_card(cards: str) -> str:
     full_deck = {
@@ -23,14 +22,11 @@ def missing_card(cards: str) -> str:
     for key, value in full_deck.items():
           if value == 0:
               return key
-
     return "No card missing"
-
 
 def main() -> None:
     #  print(card_dict)
     missing_card("S2 S3 S4 S5 S6 S7 S8 S9 S10 SJ SQ SK SA H2 H3 H4 H5 H6 H7 H8 H9 H10 HJ HQ HK HA D2 D3 D4 D5 D6 D7 D8 D9 D10 DJ DQ DK DA C2 C3 C4 C5 C6 C7 C8 C9 C10 CJ CQ CK")
-
 
 if __name__ == "__main__":
     main()
