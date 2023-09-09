@@ -1,10 +1,8 @@
+# https://www.hackinscience.org/exercises/print-battery-charge
 import math
-from typing import List
-
 
 BLOCK = "\u2503"
 EMPTY_INDICATOR = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-
 
 def display(bars: int) -> str:
     """Displays a string representation of the battery."""
@@ -12,7 +10,6 @@ def display(bars: int) -> str:
     for i in range(bars):
         indicator[i] = BLOCK
     return "".join(indicator)
-
 
 def battery_charge(percentage: int) -> None:
     """
@@ -27,7 +24,6 @@ def battery_charge(percentage: int) -> None:
     bars = round(percentage / 10)
     print(f"[{display(bars)}] {percentage}%\n")
 
-
 def main() -> None:
     battery_charge(0)
     battery_charge(5)
@@ -35,7 +31,6 @@ def main() -> None:
     battery_charge(45)
     battery_charge(78)
     battery_charge(99)
-
 
 if __name__ == "__main__":
     main()
