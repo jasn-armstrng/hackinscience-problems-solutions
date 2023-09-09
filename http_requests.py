@@ -1,3 +1,4 @@
+# https://www.hackinscience.org/exercises/doing-http-requests
 import requests
 from requests.exceptions import RequestException
 from typing import Dict, Any
@@ -18,11 +19,9 @@ def fetch(url: str) -> Dict[str, Any]:
         print(f"An error occurred during the request: {e}")
         return {}  # return an empty dict or any other default value
 
-
 def main() -> None:
     data = fetch('https://api.github.com/users/python')
     print(data)
-
 
 if __name__ == "__main__":
     main()
